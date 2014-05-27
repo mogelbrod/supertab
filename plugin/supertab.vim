@@ -221,6 +221,12 @@ function! SuperTabAlternateCompletion(type) " {{{
   " insert behavior of <c-e> from occurring.
   call feedkeys("\<c-x>\<c-p>\<c-e>", 'n')
   call feedkeys(b:complType, 'n')
+
+  " Return to default completion
+  if g:SuperTabRetainCompletionDuration == 'completion'
+    call s:SetDefaultCompletionType()
+  endif
+
   return ''
 endfunction " }}}
 
